@@ -30,13 +30,13 @@ const TableData = (props:Props) => {
 
       {props.type === "historic" && 
         <div className="tableFixHead">
-            <div className="tittle">Historic Prices</div>
+            <div className="title">Historic Prices</div>
             <table>
               <thead>
                 <tr>
-                <th className="subtittle">Date</th>
-                <th className="subtittle subtittle-right">High</th>
-                <th className="subtittle subtittle-right">Low</th>
+                <th className="subtitle">Date</th>
+                <th className="subtitle subtitle-right">High</th>
+                <th className="subtitle subtitle-right">Low</th>
                 </tr>
               </thead>
               <tbody>
@@ -44,8 +44,8 @@ const TableData = (props:Props) => {
                 return (
                   <tr key={index}>
                     <td>{key}</td>
-                    <td className="subtittle-right">{historic[key]["2. high"]} </td>
-                    <td className="subtittle-right">{historic[key]["3. low"]}</td>
+                    <td className="subtitle-right">{historic[key]["2. high"]} </td>
+                    <td className="subtitle-right">{historic[key]["3. low"]}</td>
                   </tr>
                 );
               })}
@@ -54,8 +54,8 @@ const TableData = (props:Props) => {
                     {new Array(5).fill(1).map((element, i) => {
                       return <tr key={i}>
                                 <td>0000-00-00</td>
-                                <td className="subtittle-right">00.00000</td>
-                                <td className={`subtittle-right`}>00.00000</td>
+                                <td className="subtitle-right">00.00000</td>
+                                <td className={`subtitle-right`}>00.00000</td>
                               </tr>
                     })}
                 </>
@@ -67,14 +67,14 @@ const TableData = (props:Props) => {
 
         {props.type === "daily" &&
           <div className="tableFixHead">
-            <div className="tittle">Daily Treend</div>
+            <div className="title">Daily Treend</div>
             <table>
               <thead>
                 <tr>
-                  <th className="subtittle">Date</th>
-                  <th className="subtittle subtittle-right">Open</th>
-                  <th className="subtittle subtittle-right">Close</th>
-                  <th className="subtittle subtittle-right">Difference</th>
+                  <th className="subtitle">Date</th>
+                  <th className="subtitle subtitle-right">Open</th>
+                  <th className="subtitle subtitle-right">Close</th>
+                  <th className="subtitle subtitle-right">Difference</th>
                 </tr>
               </thead>
               <tbody>
@@ -82,9 +82,9 @@ const TableData = (props:Props) => {
                 return (
                   <tr key={index}>
                     <td>{key}</td>
-                    <td className="subtittle-right">{historic[key]["1. open"]} </td>
-                    <td className="subtittle-right">{historic[key]["4. close"]}</td>
-                    <td className={`subtittle-right ${historic[key]["4. close"] - historic[key]["1. open"] > 0 ? "green" : "red"}`}>
+                    <td className="subtitle-right">{historic[key]["1. open"]} </td>
+                    <td className="subtitle-right">{historic[key]["4. close"]}</td>
+                    <td className={`subtitle-right ${historic[key]["4. close"] - historic[key]["1. open"] > 0 ? "green" : "red"}`}>
                         {historic[key]["4. close"] - historic[key]["1. open"] > 0 ? "+" : ""}
                         {Number((historic[key]["4. close"] - historic[key]["1. open"]).toFixed(5))}
                     </td>
@@ -96,9 +96,9 @@ const TableData = (props:Props) => {
                     {new Array(5).fill(1).map((element, i) => {
                       return <tr key={i}>
                                 <td>0000-00-00</td>
-                                <td className="subtittle-right">00.00000</td>
-                                <td className="subtittle-right">00.00000</td>
-                                <td className={`subtittle-right`}>00.00000</td>
+                                <td className="subtitle-right">00.00000</td>
+                                <td className="subtitle-right">00.00000</td>
+                                <td className={`subtitle-right`}>00.00000</td>
                               </tr>
                     })}
                 </>
@@ -117,7 +117,7 @@ TableData.defaultProps =  defaultProps;
 const TableStyled= styled.div`
 width:100%;
 margin-top:2em;
-.tittle{
+.title{
   width:100%;
   background-color:#202837;
   font-size:1.5em;
@@ -125,7 +125,7 @@ margin-top:2em;
   text-align:left;
 }
 
-.subtittle-right{
+.subtitle-right{
   text-align:right;
 }
 
@@ -151,7 +151,7 @@ table{
 th, td { 
   padding: 8px 16px; 
   background-color:black;
-  border-bottom:2px solid gray;
+  border-bottom:2px solid rgba(120, 120, 120, .2);;
 }
 
 tbody{
@@ -173,7 +173,7 @@ th{
 
 @media (max-width: 992px) {
 
-  /* .tittle{
+  /* .title{
     font-size:2.5em;
   }
 

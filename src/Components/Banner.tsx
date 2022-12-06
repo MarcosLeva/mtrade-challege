@@ -33,32 +33,32 @@ const Banner = (props: Props) => {
             <Col >
               <div className="colums">
                 
-                <p className="subtittle under">Currency Pair</p>
-                <p className="tittle">{props.currency}</p>
+                <p className="subtitle under">Currency Pair</p>
+                <p className="title">{props.currency}</p>
               </div>
             </Col>
             <Col>
               <div className="colums border-right">
-                <p className="right-text subtittle">Current Exchange Rate Value</p>
-                <p className="right-text green tittle">{props.rate?.toFixed(4)}</p>
+                <p className="right-text subtitle">Current Exchange Rate Value</p>
+                <p className="right-text green title">{props.rate?.toFixed(4)}</p>
               </div>
             </Col>
             <Col >
               <div className="colums border-right">
-                <p className="right-text subtittle">Highest Exchange Rate Today</p>
-                <p className="right-text tittle">{props.highest?.toFixed(4)}</p>
+                <p className="right-text subtitle">Highest Exchange Rate Today</p>
+                <p className="right-text title">{props.highest?.toFixed(4)}</p>
               </div>
             </Col>
             <Col >
               <div className="colums border-right">
-                <p className="right-text subtittle">Lowest Exchange Rate Today</p>
-                <p className="right-text tittle">{props.lowest?.toFixed(4)}</p>
+                <p className="right-text subtitle">Lowest Exchange Rate Today</p>
+                <p className="right-text title">{props.lowest?.toFixed(4)}</p>
               </div>
             </Col>
             <Col  className="right-text">
               <div className="colums">
-                <p className="right-text subtittle">Last Update (UTC)</p>
-                <p className="right-text tittle">{props.date}</p>
+                <p className="right-text subtitle">Last Update (UTC)</p>
+                <p className="right-text title">{props.date}</p>
               </div>
             </Col>
           </>
@@ -93,12 +93,12 @@ const BannerStyled= styled(Container)`
     text-align:right;
   }
 
-  .subtittle{
+  .subtitle{
     font-size:0.8em;
     opacity:0.4;
   }
 
-  .tittle{
+  .title{
     font-size:1.3em;
   }
 
@@ -117,12 +117,12 @@ const BannerStyled= styled(Container)`
 
 
   @media (max-width: 992px) {
-    .subtittle{
+    .subtitle{
       font-size:1.2em;
       opacity:0.4;
     }
   
-    .tittle{
+    .title{
       font-size:1.6em;
     }
   }

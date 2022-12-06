@@ -12,10 +12,8 @@ import ReconnectingWebSocket from "reconnecting-websocket";
   const SocketContextProvider = (props) =>{
     const [socket,setSocket] = useState(null)
     const [socketState,setSocketState] = useState(false)
-    const [subscription,setSubscription] = useState([])
 
     useEffect(() => {
-      console.log("conectado")
       connect()
     }, []);
 
@@ -36,14 +34,12 @@ import ReconnectingWebSocket from "reconnecting-websocket";
 
     const bindEvents = (socket)=>{
       socket.onclose = (e) => {
-        console.log("Desconectado")
         disconnect()
         setSocketState(false)
         connect()
       };
 
       socket.onopen = (e) => {
-        console.log("Conectado")
         setSocket(socket)
         setSocketState(true)
       };

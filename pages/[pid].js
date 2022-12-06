@@ -22,6 +22,7 @@ function PairShow() {
   const [points, setPoints] = useState([])
   const [date, setDate] = useState("")
   const [historic, setHistoric] = useState ({})
+  const [currencyExchange, setCurrencyExchange] = useState ([])
   const toastID = useRef(null)
 
   const {
@@ -71,6 +72,14 @@ function PairShow() {
     }
   }, [pid,socket]);
 
+  useEffect(() => {
+    if(error){
+      toast.error(error.response.data, {
+        toastId: toastID,
+        theme:"colored",
+      });
+    }
+  }, [error]);
 
   useEffect(() => {
     if(socket){
@@ -80,8 +89,8 @@ function PairShow() {
           setPoints((points)=>{
             return [currency.point,...points]
           })
-         setDate(getDateUTC(new Date()))
-         setCurrency(currency.currency)
+          setDate(getDateUTC(new Date()))
+          setCurrency(currency.currency)
       } catch (error) {
         setCurrency("No currency Pair")
         setDate("0000-00-00 00:00:00")
@@ -101,7 +110,6 @@ function PairShow() {
       toast.error("Se ha perdido la conexión al WebSocket", {
         toastId: toastID,
         theme:"colored",
-        BannerStyled
       });
     }
   }, [socketState]);
@@ -137,7 +145,15 @@ function PairShow() {
     <ChartStyled fluid>
       <Row >
         <Col lg={12} sm={12}>
-          <Charts historic={historic} loading={isLoading}></Charts>
+          <Charts historic={historic} loading={isLoading} date={date} rate={points[0]} type={"historic"}></Charts>
+        </Col>
+      </Row>
+    </ChartStyled>
+
+    <ChartStyled fluid>
+      <Row >
+        <Col lg={12} sm={12}>
+          <Charts historic={historic} loading={isLoading} date={date} rate={points[0]} type={"daily"}></Charts>
         </Col>
       </Row>
     </ChartStyled>
