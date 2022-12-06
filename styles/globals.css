@@ -21,6 +21,14 @@ a {
   }
   body {
     color: white;
-    background: black;
+    background: #1a202c;
   }
+
+  .toast-message {
+    background: darkblue;
+    color: #fff;
+    font-size: 20px;
+    width: 34vw;
+    padding: 30px 20px;
+}
 }
